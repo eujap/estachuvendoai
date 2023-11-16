@@ -1,3 +1,4 @@
+import 'package:esta_chuvendo_ai/controllers/tema_controller.dart';
 import 'package:flutter/material.dart';
 
 class Resumo extends StatelessWidget {
@@ -29,8 +30,10 @@ class Resumo extends StatelessWidget {
               children: [
                 Icon(Icons.brightness_6_outlined),
                 Switch(
-                  value: false,
-                  onChanged: (valor) {},
+                  value: TemaController.instance.usarTemaEscuro,
+                  onChanged: (valor) {
+                    TemaController.instance.trocarTema();
+                  },
                 )
               ],
             )

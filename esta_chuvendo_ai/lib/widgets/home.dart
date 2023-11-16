@@ -25,7 +25,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Está chovendo aí?'),
+        title: const Text(
+          'Está Chovendo! Aí?',
+          style: TextStyle(
+            fontFamily: 'SouceCodePro',
+            fontStyle: FontStyle.italic,
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
       ),
       body: Center(

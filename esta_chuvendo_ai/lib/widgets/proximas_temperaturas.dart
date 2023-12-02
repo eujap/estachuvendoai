@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:esta_chuvendo_ai/models/previsao_hora.dart';
 import 'package:flutter/material.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TemaController extends ChangeNotifier {
   bool usarTemaEscuro = false;
-  static TemaController instance = new TemaController();
+  static TemaController instance = TemaController();
 
   TemaController() {
     usarTemaEscuro = false;

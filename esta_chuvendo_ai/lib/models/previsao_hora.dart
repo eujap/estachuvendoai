@@ -20,6 +20,7 @@ class PrevisaoHora {
   }
 
   static String transformarHorario(String horario) {
+    // ignore: unnecessary_null_comparison
     return horario != null ? horario.split('T')[1].substring(0, 5) : '';
   }
 }

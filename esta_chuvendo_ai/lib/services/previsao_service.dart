@@ -4,12 +4,11 @@ import 'package:http/http.dart';
 import 'dart:convert';
 
 class PrevisaoService {
-  final String baseUrlApi = 'dataservice.accuweather.com/';
+  final String baseUrlApi = 'dataservice.accuweather.com';
   final String path = 'forecasts/v1/hourly/12hour/${dotenv.env["CITY_CODE"]}';
-  static String _get(String name) => DotEnv().env[name] ?? '';
 
   final Map<String, String> params = {
-    'apikey': _get('API_KEY'),
+    'apikey': dotenv.env['API_KEY']!,
     'language': 'pt-BR',
     'metric': 'true'
   };

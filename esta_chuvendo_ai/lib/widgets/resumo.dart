@@ -1,7 +1,7 @@
 import 'package:esta_chuvendo_ai/controllers/tema_controller.dart';
 import 'package:flutter/material.dart';
 
-class Resumo extends StatelessWidget {
+class Resumo extends StatefulWidget {
   final String cidade;
   final String descricao;
   final double temperaturaAtual;
@@ -19,6 +19,11 @@ class Resumo extends StatelessWidget {
       required this.numeroIcone});
 
   @override
+  State<Resumo> createState() => _ResumoState();
+}
+
+class _ResumoState extends State<Resumo> {
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -28,7 +33,7 @@ class Resumo extends StatelessWidget {
           children: [
             Column(
               children: [
-                Icon(Icons.brightness_6_outlined),
+                const Icon(Icons.brightness_6_outlined),
                 Switch(
                   value: TemaController.instance.usarTemaEscuro,
                   onChanged: (valor) {
@@ -40,38 +45,40 @@ class Resumo extends StatelessWidget {
           ],
         ),
         Text(
-          cidade,
-          style: TextStyle(fontSize: 18),
+          widget.cidade,
+          style: const TextStyle(fontSize: 18),
         ),
-        Padding(padding: EdgeInsets.all(5)),
+        const Padding(padding: EdgeInsets.all(5)),
         IntrinsicHeight(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(image: AssetImage('images/$numeroIcone.png')),
-              Padding(padding: EdgeInsets.all(2)),
+              Image(
+                  image: AssetImage(
+                      'images/${widget.numeroIcone < 10 ? 0 : ''}${widget.numeroIcone}-s.png')),
+              const Padding(padding: EdgeInsets.all(2)),
               Text(
-                '${temperaturaAtual.toStringAsFixed(0)} ºC',
-                style: TextStyle(fontSize: 40),
+                '${widget.temperaturaAtual.toStringAsFixed(0)} ºC',
+                style: const TextStyle(fontSize: 40),
               ),
-              VerticalDivider(
+              const VerticalDivider(
                 color: Colors.black,
                 thickness: 1,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('${temperaturaMaxima.toStringAsFixed(0)} ºC'),
-                  Text('${temperaturaMinima.toStringAsFixed(0)} ºC'),
+                  Text('${widget.temperaturaMaxima.toStringAsFixed(0)} ºC'),
+                  Text('${widget.temperaturaMinima.toStringAsFixed(0)} ºC'),
                 ],
               ),
             ],
           ),
         ),
-        Padding(padding: EdgeInsets.all(10)),
+        const Padding(padding: EdgeInsets.all(10)),
         Text(
-          descricao,
-          style: TextStyle(fontSize: 16),
+          widget.descricao,
+          style: const TextStyle(fontSize: 16),
         ),
       ],
     );

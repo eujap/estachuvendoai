@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:esta_chuvendo_ai/controllers/tema_controller.dart';
 import 'package:esta_chuvendo_ai/widgets/home.dart';
-import 'package:flutter/material.dart';
 
 class EstaChovendoAiApp extends StatelessWidget {
   const EstaChovendoAiApp({super.key});
@@ -11,12 +11,12 @@ class EstaChovendoAiApp extends StatelessWidget {
       animation: TemaController.instance,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Está Chovendo Aí?',
+          title: 'Está chovendo aí?',
           theme: TemaController.instance.usarTemaEscuro
               ? ThemeData.dark()
               : ThemeData.light(),
           debugShowCheckedModeBanner: false,
-          home: Home(),
+          home: const Home(),
         );
       },
     );

@@ -12,4 +12,6 @@ class TemaController extends ChangeNotifier {
     usarTemaEscuro = !usarTemaEscuro;
     notifyListeners();
   }
+
+  void initialize() {}
 }

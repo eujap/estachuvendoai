@@ -17,7 +17,8 @@ class ProximasTemperaturas extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage('images/${previsoes[i].numeroIcone}.png'),
+          image: AssetImage(
+              'images/${previsoes[i].numeroIcone < 10 ? 0 : ''}${previsoes[i].numeroIcone}-s.png'),
         ),
         Padding(padding: EdgeInsets.all(2)),
         Text(previsoes[i].horario),
